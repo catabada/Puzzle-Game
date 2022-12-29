@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="font-family: TarrgetAcademyItalic" class="main">
+        <div class="score-board">
+            <div class="score-board-wrapper">
+                <ul class="list">
+                    <li class="item">
+                        <div class="title">Time</div>
+                        <div id="content-time" class="content">00: <span class="second">00</span> </div>
+                    </li>
+                    <li class="item">
+                        <div class="title">Score</div>
+                        <div id="content-score" class="content">0</div>
+                    </li>
+                    <li class="item">
+                        <div class="title">Level</div>
+                        <input type="text" name="" id="input-level" hidden value="1">
+                        <div id="content-level" class="content">0</div>
+                    </li>
+                    <li class="item">
+                        <div class="title">Lines</div>
+                        <div id="content-lines" class="content">0</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="game">
+            <div class="game--wrapper">
+                <div class="menu-game">
+                    <div class="menu-game--wrapper">
+                        <div class="logo">
+                        </div>
+                        <ul class="option-list">
+                            <li class="option-item play">
+                                <button class="play">
+                                    Play
+                                </button>
+                            </li>
+                            <li class="option-item button level">
+                                <div class="option-item--wrapper">
+                                    Level: <span class="level-option">1</span>
+                                </div>
+                            </li>
+                            <li class="option-item button help">
+                                <div class="option-item--wrapper">
+                                    Help
+                                </div>
+                            </li>
+                            <li class="option-item button exit">
+                                <div class="option-item--wrapper">
+                                    Exit
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <img src="assets/img/lazer.png" alt="" class="gun" hidden>
+                <div class="game-board" hidden>
+                    <canvas id="grid" width=420, height=690>
+                    </canvas>
+                    <canvas id="tetris-game" width=420, height=690>
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="next-board--wrapper">
+            <div class="next-board">
+                <div class="title-wrapper">
+                    <div class="title">
+                        Next
+                    </div>
+                    <div class="board">
+                        <canvas id="next-board" width=210 height=480></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-pause" hidden>
+            <div class="btn-pause--wrapper">
+                <i class="fa-solid fa-pause"></i>
+            </div>
+        </div>
+        <div class="modal-pause">
+            <div class="pop-up-pause">
+                <div class="pop-up-pause--wrapper">
+                    <div class="title">
+                        PAUSE
+                    </div>
+                    <ul class="option-list">
+                        <li class="option-item resume">
+                            <div class="option-item--wrapper">
+                                Resume
+                            </div>
+                        </li>
+                        <li class="option-item restart">
+                            <div class="option-item--wrapper">
+                                Restart
+                            </div>
+                        </li>
+                        <li class="option-item menu">
+                            <div class="option-item--wrapper">
+                                Menu
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="modal-help">
+            <div class="pop-up-help">
+                <div class="pop-up-help--wrapper">
+                    <div class="title">
+                        HELP
+                    </div>
+                    <ul class="help-list">
+                        <li class="help-item">
+                            <div class="img">
+                                <img src="assets/img/left.png" alt="">
+                            </div>
+                            <div class="content">
+                                Move left
+                            </div>
+                        </li>
+                        <li class="help-item">
+                            <div class="img">
+                                <img src="assets/img/right.png" alt="">
+                            </div>
+                            <div class="content">
+                                Move right
+                            </div>
+                        </li>
+                        <li class="help-item">
+                            <div class="img">
+                                <img src="assets/img/up.png" alt="">
+                            </div>
+                            <div class="content">
+                                Rotate
+                            </div>
+                        </li>
+                        <li class="help-item">
+                            <div class="img">
+                                <img src="assets/img/down.png" alt="">
+                            </div>
+                            <div class="content">
+                                Move down
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="list-img" hidden>
+            <!-- <img src="assets/img/flame.png" alt="" class="flame-img"> -->
+            <img src="assets/img/nuclear.jpg" alt="" class="bomb-img">
+            <img src="assets/img/bullet.png" alt="" class="bullet-img">
+            <img src="assets/img/wall.png" alt="" class="wall-img">
+            <img src="assets/img/i.png" alt="" class="i-img">
+            <img src="assets/img/l.png" alt="" class="l-img">
+            <img src="assets/img/o.png" alt="" class="o-img">
+            <img src="assets/img/s.png" alt="" class="s-img">
+            <img src="assets/img/z.png" alt="" class="z-img">
+            <img src="assets/img/t.png" alt="" class="t-img">
+            <img src="assets/img/j.png" alt="" class="j-img">
+        </div>
+    </div>
+
+    <script src="assets/js/constant.js"></script>
+    <script src="assets/js/piece.js"></script>
+    <script src="assets/js/bomb.js"></script>
+    <script src="assets/js/bullet.js"></script>
+    <script src="assets/js/nextboard.js"></script>
+    <script src="assets/js/gamemodel.js"></script>
+    <script src="assets/js/tetris.js"></script>
+</body>
+
+</html>
